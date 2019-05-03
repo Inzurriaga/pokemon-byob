@@ -12,7 +12,7 @@ app.use(cors())
 
 app.set('port', process.env.PORT || 3000).
 
-app.listen(app.get("port"), () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("Server is running on http://localhost:3000")
 })
 
