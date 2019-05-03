@@ -10,9 +10,11 @@ const database = require('knex')(configuration);
 app.use(express.json())
 app.use(cors())
 
-app.listen("3000", () => {
-    console.log("Server is running on http://localhost:3000")
-})
+app.set('port', process.env.PORT || 3000).
+
+// app.listen("3000", () => {
+//     console.log("Server is running on http://localhost:3000")
+// })
 
 app.get("/api/v1/pokemon", (request, response) => {
     database('pokemon').select()
