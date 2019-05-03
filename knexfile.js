@@ -19,7 +19,7 @@ module.exports = {
       directory: './db/migrations'
     },
     seeds: {
-      directory: __dirname + '/db/seeds/production',
+      directory: __dirname + '/db/seeds',
   },
     useNullAsDefault: true
   }
