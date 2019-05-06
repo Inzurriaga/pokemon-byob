@@ -67,3 +67,37 @@ app.get("/api/v1/types/:id", (request, response) => {
         response.status(500).json({ error });
       });
   })
+
+  app.post('/api/v1/pokemon', (request, response) => {
+    const pokemon = request.body;
+    database('pokemon').insert(pokemon, 'id')
+      .then(pokemon => {
+        response.status(201).json({ id: pokemon[0] })
+      })
+      .catch(error => {
+        response.status(500).json({ error });
+      });
+  });
+
+  app.post('/api/v1/types', (request, response) => {
+    const type = request.body;
+    database('types').insert(type, 'id')
+      .then(type => {
+        response.status(201).json({ id: type[0] })
+      })
+      .catch(error => {
+        response.status(500).json({ error });
+      });
+  });
+
+
+  app.delete('/api/v1/pokemon/:id', (request, response) => {
+    const pokemonId = request.params.id;
+    database('pokemon').where("id", pokemonId).del()
+      .then(pokemon => {
+        response.status(204).json({ id: pokemon[0] })
+      })
+      .catch(error => {
+        response.status(500).json({ error });
+      });
+  });
