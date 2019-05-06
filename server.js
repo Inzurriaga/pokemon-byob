@@ -33,7 +33,7 @@ app.get("/api/v1/pokemon/:id", (request, response) => {
           response.status(200).json(pokemon);
         } else {
           response.status(404).json({ 
-            error: `Could not find paper with id ${request.params.id}`
+            error: `Could not find pokemon with id ${request.params.id}`
           });
         }
       })
@@ -59,7 +59,7 @@ app.get("/api/v1/types/:id", (request, response) => {
           response.status(200).json(types);
         } else {
           response.status(404).json({ 
-            error: `Could not find paper with id ${request.params.id}`
+            error: `Could not find types with id ${request.params.id}`
           });
         }
       })
