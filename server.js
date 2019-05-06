@@ -94,8 +94,8 @@ app.get("/api/v1/types/:id", (request, response) => {
   app.delete('/api/v1/pokemon/:id', (request, response) => {
     const pokemonId = request.params.id;
     database('pokemon').where("id", pokemonId).del()
-      .then(pokemon => {
-        response.status(204).json({ id: pokemon[0] })
+      .then(() => {
+        response.sendStatus(204)
       })
       .catch(error => {
         response.status(500).json({ error });
